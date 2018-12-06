@@ -1,12 +1,18 @@
-import styles from './index.css';
 
-function BasicLayout(props) {
+import LoginLayout from "./LoginLayout";
+import Header from "./Header";
+import Footer from "./Footer";
+
+export default function(props) {
+  if (props.location.pathname === '/login') {
+    return <LoginLayout>{ props.children }</LoginLayout>
+  }
+  
   return (
-    <div className={styles.normal}>
-      <h1 className={styles.title}>Yay! Welcome to umi!</h1>
+    <>
+      <Header />
       { props.children }
-    </div>
+      <Footer />
+    </>
   );
 }
-
-export default BasicLayout;
